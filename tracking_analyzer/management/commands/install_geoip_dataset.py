@@ -60,6 +60,8 @@ class Command(BaseCommand):
             raise CommandError('Unable to download MaxMind dataset.')
 
         filename = os.path.join(geoip_dir, mm_dataset)
+        if not os.path.exists(geoip_dir):
+            os.makedirs(geoip_dir)
 
         with open(filename, 'wb') as f:
             metadata = resource.info()

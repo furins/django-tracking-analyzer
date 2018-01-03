@@ -1,6 +1,5 @@
 import logging
 
-from django.contrib.auth.models import User
 from django.contrib.gis.geoip2 import GeoIP2, GeoIP2Exception
 from django.db import models
 from django.http import HttpRequest
@@ -34,7 +33,6 @@ class TrackerManager(models.Manager):
             '`content_object` is not a Django model'
 
         user = request.user
-        user = user if isinstance(user, User) else None
 
         if request.user_agent.is_mobile:
             device_type = self.model.MOBILE

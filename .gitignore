@@ -41,3 +41,4 @@ pip-delete-this-directory.txt
 docs/_build
 docs/_static
 docs/_templates
+.idea

@@ -5,6 +5,7 @@ from django.urls import reverse
 from django.db.models import Count
 
 from django_countries import countries
+from django.utils.safestring import mark_safe
 
 from .compat import get_requests_count
 from .models import Tracker
@@ -35,6 +36,7 @@ class TrackerAdmin(admin.ModelAdmin):
             'admin/js/vendor/d3-tip/d3-tip.min.js'
         ]
 
+    @mark_safe
     def details(self, obj):
         """
         Define the 'Details' column rows display.
@@ -45,6 +47,7 @@ class TrackerAdmin(admin.ModelAdmin):
     details.allow_tags = True
     details.short_description = 'Details'
 
+    @mark_safe
     def content_object_link(self, obj):
         """
         Define the 'Content Object' column rows display.
@@ -61,6 +64,7 @@ class TrackerAdmin(admin.ModelAdmin):
     content_object_link.allow_tags = True
     content_object_link.short_description = 'Content object'
 
+    @mark_safe
     def ip_address_link(self, obj):
         """
         Define the 'IP Address' column rows display.
@@ -76,6 +80,7 @@ class TrackerAdmin(admin.ModelAdmin):
     ip_address_link.allow_tags = True
     ip_address_link.short_description = 'IP Address'
 
+    @mark_safe
     def ip_country_link(self, obj):
         """
         Define the 'IP Country' column rows display.
@@ -92,6 +97,7 @@ class TrackerAdmin(admin.ModelAdmin):
     ip_country_link.allow_tags = True
     ip_country_link.short_description = 'IP Country'
 
+    @mark_safe
     def ip_city_link(self, obj):
         """
         Define the 'IP City' column rows display.
@@ -107,6 +113,7 @@ class TrackerAdmin(admin.ModelAdmin):
     ip_city_link.allow_tags = True
     ip_city_link.short_description = 'IP City'
 
+    @mark_safe
     def user_link(self, obj):
         """
         Define the 'User' column rows display.
